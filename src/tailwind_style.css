@@ -1,0 +1,123 @@
+/* =============================================
+   Base Tailwind Imports
+   ============================================= */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =============================================
+   Utilities
+   ============================================= */
+@layer utilities {
+  @supports (-moz-appearance: none) {
+    .f-hidden {
+      display: none;
+    }
+  }
+}
+
+
+/* =============================================
+   Base Layer
+   ============================================= */
+@layer base {
+
+  /* --- Fonts --- */
+  @font-face {
+    font-family: 'plaisioRegular';
+    src: url('https://res.plaisio.gr/raw/upload/Campaigns/B2C-Campaigns/Shared/fonts/CFAstyPlaisio-Oblique.otf') format('opentype');
+    font-style: oblique;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'ACTitan';
+    src: url('https://res.plaisio.gr/raw/upload/v1776846116/Campaigns/B2C-Campaigns/Shared/fonts/ACTitan.ttf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* --- HTML root --- */
+  html {
+    font-family: "plaisioRegular";
+    scroll-behavior: smooth;
+  }
+
+
+  /* --- Swiper navigation buttons --- */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 2.0625rem;
+    height: 3.125rem;
+    border: none;
+    color: #000;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: hsla(0, 0%, 100%, 0.8) !important;
+    box-shadow: -0.125rem 0.1875rem 0.25rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .swiper-button-next {
+    right: 0;
+    border-radius: 0.3125rem 0 0 0.3125rem;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    border-radius: 0 0.3125rem 0.3125rem 0;
+  }
+
+
+  /* --- Swiper pagination --- */
+  .swiper-pagination {
+    position: relative;
+    left: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 32px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: #292828;
+    opacity: 1;
+    transition:
+      width 200ms ease,
+      background-color 200ms ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #9a9a9a;
+  }
+
+
+  /* --- Scroll reveal animation --- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.5s ease var(--delay, 0ms),
+      transform 0.5s ease var(--delay, 0ms);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1023px) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  
+
+}

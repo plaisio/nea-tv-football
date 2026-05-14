@@ -1,0 +1,277 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.root { padding: 1.5rem 0; font-family: var(--font-mono, monospace); }
+h2.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; cursor: pointer; }
+.card-label { padding: 10px 14px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; align-items: center; justify-content: space-between; }
+.badge { font-size: 10px; padding: 2px 8px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 20px; color: var(--color-text-tertiary); transition: opacity 0.3s; }
+.badge.done { color: var(--color-text-success); border-color: var(--color-border-success); }
+.stage { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+.img-a, .img-b { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 10px; letter-spacing: 0.06em; background: rgba(0,0,0,0.55); color: #fff; padding: 4px 12px; border-radius: 20px; pointer-events: none; white-space: nowrap; transition: opacity 0.4s; }
+.stage.done .hint { opacity: 0; }
+/*.stage.done#s3 .img-b { opacity: 0; }
+#s3 .img-a { opacity: 0; }
+.stage.done#s3 .img-a { opacity: 1; }*/
+.img-b {opacity: 0}
+
+/* === 1. GLITCH SLICE === */
+.g-b { z-index: 1; }
+.g-a { z-index: 2; }
+
+@keyframes glitch-run {
+  0%   { clip-path: inset(0 0 0 0); transform: translateX(0);   filter: none; }
+  8%   { clip-path: inset(20% 0 30% 0); transform: translateX(-8px);  filter: hue-rotate(90deg) saturate(3); }
+  16%  { clip-path: inset(60% 0 5% 0);  transform: translateX(6px);   filter: hue-rotate(180deg) saturate(3); }
+  24%  { clip-path: inset(10% 0 70% 0); transform: translateX(-4px);  filter: hue-rotate(270deg) saturate(2); }
+  32%  { clip-path: inset(80% 0 2% 0);  transform: translateX(10px);  filter: hue-rotate(90deg) saturate(3); }
+  40%  { clip-path: inset(30% 0 40% 0); transform: translateX(-6px);  filter: hue-rotate(180deg) saturate(3); }
+  48%  { clip-path: inset(5% 0 90% 0);  transform: translateX(4px);   filter: hue-rotate(270deg) saturate(2); }
+  56%  { clip-path: inset(50% 0 15% 0); transform: translateX(-12px); filter: hue-rotate(90deg) saturate(3); }
+  64%  { clip-path: inset(70% 0 8% 0);  transform: translateX(8px);   filter: hue-rotate(180deg) saturate(2); }
+  72%  { clip-path: inset(15% 0 50% 0); transform: translateX(-3px);  filter: hue-rotate(270deg) saturate(2); }
+  80%  { clip-path: inset(90% 0 0 0);   transform: translateX(6px);   filter: none; }
+  90%  { clip-path: inset(100% 0 0 0);  transform: translateX(0);     opacity: 1; }
+  100% { clip-path: inset(100% 0 0 0);  transform: translateX(0);     opacity: 0; }
+}
+
+.glitch-stage.go .g-a {
+  animation: glitch-run 1.4s steps(1,end) forwards;
+}
+
+/* === 2. SCANLINE DISSOLVE === */
+.s-b { z-index: 1; }
+.s-a { z-index: 2; }
+.scanlines { position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 3px, rgba(0,0,0,0.85) 3px, rgba(0,0,0,0.85) 4px);
+  opacity: 0; }
+
+@keyframes s-img-out {
+  0%   { opacity: 1; filter: brightness(1); }
+  20%  { opacity: 1; filter: brightness(1.5) contrast(1.4); }
+  40%  { opacity: 0.6; filter: brightness(0.5); }
+  60%  { opacity: 0.25; filter: brightness(1.8) contrast(2); }
+  80%  { opacity: 0.05; }
+  100% { opacity: 0; }
+}
+@keyframes s-lines {
+  0%, 100% { opacity: 0; }
+  20%, 60%  { opacity: 1; }
+  40%       { opacity: 0.4; }
+  80%       { opacity: 0; }
+}
+
+.scan-stage.go .s-a { animation: s-img-out 1.6s ease-in forwards; }
+.scan-stage.go .scanlines { animation: s-lines 1.6s ease-in forwards; }
+
+/* === 3. PIXEL BURN === */
+.burn-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; image-rendering: pixelated; }
+.b-b { z-index: 1; }
+
+/* === 4. VERTICAL BLINDS === */
+.bl-b { z-index: 1; }
+.bl-a { z-index: 2; }
+.blinds-wrap { position: absolute; inset: 0; z-index: 3; display: flex; pointer-events: none; }
+.strip { flex: 1; transform-origin: top; background: #060a10; transform: scaleY(0); }
+
+@keyframes strip-close {
+  0%   { transform: scaleY(0); }
+  40%  { transform: scaleY(1); }
+  100% { transform: scaleY(1); }
+}
+@keyframes bl-a-out { 0%,45%{opacity:1} 70%{opacity:0} 100%{opacity:0} }
+@keyframes bl-b-in  { 0%,50%{opacity:0} 85%{opacity:1} 100%{opacity:1} }
+
+.blinds-stage.go .bl-a { animation: bl-a-out 1.6s ease forwards; }
+.blinds-stage.go .bl-b { animation: bl-b-in  1.6s ease forwards; }
+.blinds-stage.go .strip:nth-child(1)  { animation: strip-close 1.2s ease-in-out 0s    forwards; }
+.blinds-stage.go .strip:nth-child(2)  { animation: strip-close 1.2s ease-in-out 0.04s forwards; }
+.blinds-stage.go .strip:nth-child(3)  { animation: strip-close 1.2s ease-in-out 0.08s forwards; }
+.blinds-stage.go .strip:nth-child(4)  { animation: strip-close 1.2s ease-in-out 0.12s forwards; }
+.blinds-stage.go .strip:nth-child(5)  { animation: strip-close 1.2s ease-in-out 0.16s forwards; }
+.blinds-stage.go .strip:nth-child(6)  { animation: strip-close 1.2s ease-in-out 0.20s forwards; }
+.blinds-stage.go .strip:nth-child(7)  { animation: strip-close 1.2s ease-in-out 0.24s forwards; }
+.blinds-stage.go .strip:nth-child(8)  { animation: strip-close 1.2s ease-in-out 0.28s forwards; }
+.blinds-stage.go .strip:nth-child(9)  { animation: strip-close 1.2s ease-in-out 0.32s forwards; }
+.blinds-stage.go .strip:nth-child(10) { animation: strip-close 1.2s ease-in-out 0.36s forwards; }
+</style>
+
+<div class="root">
+<h2 class="sr-only">Four image reveal animations, each permanently revealing the second image. Click each card to trigger.</h2>
+
+<div class="grid">
+
+  <!-- 1. GLITCH SLICE -->
+  <div class="card" id="c1" onclick="runGlitch()">
+    <div class="card-label">01 — Glitch slice <span class="badge" id="b1">click</span></div>
+    <div class="stage glitch-stage" id="s1">
+      <img class="img-b g-b" src="../assets/images/img-02.png" alt="mountain reveal" />
+      <img class="img-a g-a" src="../assets/images/img-01.png" alt="tech workspace" />
+      <div class="hint">click to reveal</div>
+    </div>
+  </div>
+
+  <!-- 2. SCANLINE DISSOLVE -->
+  <div class="card" id="c2" onclick="runScan()">
+    <div class="card-label">02 — Scanline dissolve <span class="badge" id="b2">click</span></div>
+    <div class="stage scan-stage" id="s2">
+      <img class="img-b s-b" src="../assets/images/img-02.png" alt="forest reveal" />
+      <img class="img-a s-a" src="../assets/images/img-01.png" alt="circuit board" />
+      <div class="scanlines"></div>
+      <div class="hint">click to reveal</div>
+    </div>
+  </div>
+
+  <!-- 3. PIXEL BURN -->
+  <div class="card" id="c3" onclick="runBurn()">
+    <div class="card-label">03 — Pixel burn <span class="badge" id="b3">click</span></div>
+    <div class="stage" id="s3">
+      <img class="img-b b-b" src="../assets/images/img-01.png" alt="flowers reveal" />
+      <img class="img-a" src="../assets/images/img-02.png" alt="flowers reveal" />
+      <canvas class="burn-canvas" id="burn-canvas"></canvas>
+      <div class="hint">click to reveal</div>
+    </div>
+  </div>
+
+  <!-- 4. VERTICAL BLINDS -->
+<!--   <div class="card" id="c4" onclick="runBlinds()">
+    <div class="card-label">04 — Vertical blinds <span class="badge" id="b4">click</span></div>
+    <div class="stage blinds-stage" id="s4">
+      <img class="img-b bl-b" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="portrait reveal" />
+      <img class="img-a bl-a" src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="laptop work" />
+      <div class="blinds-wrap">
+        <div class="strip"></div><div class="strip"></div><div class="strip"></div>
+        <div class="strip"></div><div class="strip"></div><div class="strip"></div>
+        <div class="strip"></div><div class="strip"></div><div class="strip"></div>
+        <div class="strip"></div>
+      </div>
+      <div class="hint">click to reveal</div>
+    </div>
+  </div> -->
+
+</div>
+</div>
+
+<script>
+function lockCard(stageId, badgeId, cardId, duration) {
+  const stage = document.getElementById(stageId);
+  const badge = document.getElementById(badgeId);
+  const card  = document.getElementById(cardId);
+  stage.classList.add('go', 'done');
+  badge.textContent = '✓ revealed';
+  badge.classList.add('done');
+  card.style.cursor = 'default';
+  card.onclick = null;
+}
+
+function runGlitch() {
+  const stage = document.getElementById('s1');
+  if (stage.classList.contains('go')) return;
+  stage.classList.add('go');
+  setTimeout(() => {
+    const imgA = stage.querySelector('.g-a');
+    imgA.style.opacity = '0';
+    imgA.style.pointerEvents = 'none';
+    stage.classList.add('done');
+    document.getElementById('b1').textContent = '✓ revealed';
+    document.getElementById('b1').classList.add('done');
+    document.getElementById('c1').style.cursor = 'default';
+    document.getElementById('c1').onclick = null;
+  }, 1450);
+}
+
+function runScan() {
+  const stage = document.getElementById('s2');
+  if (stage.classList.contains('go')) return;
+  stage.classList.add('go');
+  setTimeout(() => {
+    const imgA = stage.querySelector('.s-a');
+    imgA.style.opacity = '0';
+    imgA.style.pointerEvents = 'none';
+    stage.classList.add('done');
+    document.getElementById('b2').textContent = '✓ revealed';
+    document.getElementById('b2').classList.add('done');
+    document.getElementById('c2').style.cursor = 'default';
+    document.getElementById('c2').onclick = null;
+  }, 1650);
+}
+
+function runBurn() {
+  const stage = document.getElementById('s3');
+  const canvas = document.getElementById('burn-canvas');
+  if (canvas._done) return;
+  canvas._done = true;
+
+  const W = stage.offsetWidth, H = stage.offsetHeight;
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+
+  const COLS = 32, ROWS = 24;
+  const cw = Math.ceil(W / COLS), ch = Math.ceil(H / ROWS);
+  const cells = [];
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c < COLS; c++)
+      cells.push({ x: c*cw, y: r*ch, delay: Math.random()*800 });
+
+  const src = new Image();
+  src.crossOrigin = 'anonymous';
+  src.onload = () => {
+    ctx.drawImage(src, 0, 0, W, H);
+    const start = performance.now();
+    const tick = (t) => {
+      const el = t - start;
+      ctx.clearRect(0, 0, W, H);
+      let allDone = true;
+      cells.forEach(cell => {
+        const p = Math.max(0, Math.min(1, (el - cell.delay) / 420));
+        if (p < 1) allDone = false;
+        if (p === 0) {
+          ctx.drawImage(src, cell.x, cell.y, cw, ch, cell.x, cell.y, cw, ch);
+        } else if (p < 0.5) {
+          const h = p * 2;
+          ctx.drawImage(src, cell.x, cell.y, cw, ch, cell.x, cell.y, cw, ch);
+          ctx.fillStyle = `rgba(255,${Math.floor(120*(1-h))},0,${h*0.9})`;
+          ctx.fillRect(cell.x, cell.y, cw, ch);
+        } else {
+          const f = (p - 0.5) * 2;
+          ctx.fillStyle = `rgba(0,0,0,${f})`;
+          ctx.fillRect(cell.x, cell.y, cw, ch);
+        }
+      });
+      if (!allDone) {
+        requestAnimationFrame(tick);
+      } else {
+        ctx.clearRect(0, 0, W, H);
+        canvas.style.display = 'none';
+        stage.classList.add('done');
+        document.getElementById('b3').textContent = '✓ revealed';
+        document.getElementById('b3').classList.add('done');
+        document.getElementById('c3').style.cursor = 'default';
+        document.getElementById('c3').onclick = null;
+      }
+    };
+    requestAnimationFrame(tick);
+  };
+  src.src = '../assets/images/img-02.png';
+}
+
+function runBlinds() {
+  const stage = document.getElementById('s4');
+  if (stage.classList.contains('go')) return;
+  stage.classList.add('go');
+  setTimeout(() => {
+    const imgA = stage.querySelector('.bl-a');
+    imgA.style.opacity = '0';
+    imgA.style.pointerEvents = 'none';
+    const wrap = stage.querySelector('.blinds-wrap');
+    wrap.style.display = 'none';
+    stage.classList.add('done');
+    document.getElementById('b4').textContent = '✓ revealed';
+    document.getElementById('b4').classList.add('done');
+    document.getElementById('c4').style.cursor = 'default';
+    document.getElementById('c4').onclick = null;
+  }, 1650);
+}
+</script>
