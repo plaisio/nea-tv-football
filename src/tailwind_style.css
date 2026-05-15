@@ -49,24 +49,32 @@
   /* --- Swiper navigation buttons --- */
   .swiper-button-next,
   .swiper-button-prev {
-    width: 2.0625rem;
-    height: 3.125rem;
+    width: 41px;
+    height: 41px;
     border: none;
-    color: #000;
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-    background-color: hsla(0, 0%, 100%, 0.8) !important;
+    color: #276529;
+    background-color: #fff !important;
     box-shadow: -0.125rem 0.1875rem 0.25rem 0 rgba(0, 0, 0, 0.1);
   }
 
   .swiper-button-next {
-    right: 0;
-    border-radius: 0.3125rem 0 0 0.3125rem;
+    border-radius: 6px;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    right: 25%;
   }
 
   .swiper-button-prev {
-    left: 0;
-    border-radius: 0 0.3125rem 0.3125rem 0;
+    border-radius: 6px;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    right: 30%;
+  }
+
+  .swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 25px;
   }
 
 
@@ -118,6 +126,87 @@
     }
   }
 
+  /* float animation */
+  .float {
+    animation: float 1.5s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(7px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* rotation animation */
+  .rotation {
+    animation: rotation 4s linear infinite;
+  }
+/* 
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    33% {
+      transform: rotate(3deg)skew(10deg, 5deg);
+    }
+    66% {
+      transform: rotate(-3deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  } */
+
   
+  @keyframes rotation {
+    0% {
+      transform: skew(0deg, 0deg);
+    }
+    33% {
+      transform: skew(2deg, 1deg);
+    }
+    66% {
+      transform: skew(-2deg, -1deg);
+    }
+    100% {
+      transform: skew(0deg, 0deg);
+    }
+  }
+
+  /* glitch animation */
+  
+.card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; cursor: pointer; }
+.stage { position: relative; width: 100%;  overflow: hidden; }
+.img-a, .img-b { position: absolute; inset: 0; width: fit-content; left: 50%; transform: translate(-50%, -50%); height: auto; object-fit: contain; display: block; }
+.img-b {opacity: 0}
+.stage.done .img-b {opacity: 1;} 
+
+/* === 1. GLITCH SLICE === */
+.g-b { z-index: 1; }
+.g-a { z-index: 2; }
+
+@keyframes glitch-run {
+  0%   { clip-path: inset(0 0 0 0);       transform: translate(-50%, -50%) translateX(0);    filter: none; }
+  8%   { clip-path: inset(20% 0 30% 0);   transform: translate(-50%, -50%) translateX(-8px); filter: hue-rotate(90deg) saturate(3); }
+  16%  { clip-path: inset(60% 0 5% 0);    transform: translate(-50%, -50%) translateX(6px);  filter: hue-rotate(180deg) saturate(3); }
+  24%  { clip-path: inset(10% 0 70% 0);   transform: translate(-50%, -50%) translateX(-4px); filter: hue-rotate(270deg) saturate(2); }
+  32%  { clip-path: inset(80% 0 2% 0);    transform: translate(-50%, -50%) translateX(10px); filter: hue-rotate(90deg) saturate(3); }
+  40%  { clip-path: inset(30% 0 40% 0);   transform: translate(-50%, -50%) translateX(-6px); filter: hue-rotate(180deg) saturate(3); }
+  48%  { clip-path: inset(5% 0 90% 0);    transform: translate(-50%, -50%) translateX(4px);  filter: hue-rotate(270deg) saturate(2); }
+  56%  { clip-path: inset(50% 0 15% 0);   transform: translate(-50%, -50%) translateX(-12px);filter: hue-rotate(90deg) saturate(3); }
+  64%  { clip-path: inset(70% 0 8% 0);    transform: translate(-50%, -50%) translateX(8px);  filter: hue-rotate(180deg) saturate(2); }
+  72%  { clip-path: inset(15% 0 50% 0);   transform: translate(-50%, -50%) translateX(-3px); filter: hue-rotate(270deg) saturate(2); }
+  80%  { clip-path: inset(90% 0 0 0);     transform: translate(-50%, -50%) translateX(6px);  filter: none; }
+  90%  { clip-path: inset(100% 0 0 0);    transform: translate(-50%, -50%) translateX(0);    opacity: 1; }
+  100% { clip-path: inset(100% 0 0 0);    transform: translate(-50%, -50%) translateX(0);    opacity: 0; }
+}
+
+.glitch-stage.go .g-a {
+  animation: glitch-run 1.4s steps(1,end) forwards;
+}
+
 
 }

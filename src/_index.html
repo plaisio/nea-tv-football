@@ -60,76 +60,6 @@
     font-weight: light;
   }
 </style>
-
-
-<style>
-
-
-
-.card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; cursor: pointer; }
-.stage { position: relative; width: 100%;  overflow: hidden; }
-.img-a, .img-b { position: absolute; inset: 0; width: fit-content; top: 45%; left: 50%; transform: translate(-50%, -50%); height: auto; object-fit: contain; display: block; }
-.img-b {opacity: 0}
-.stage.done .img-b {opacity: 1;} 
-
-/* === 1. GLITCH SLICE === */
-.g-b { z-index: 1; }
-.g-a { z-index: 2; }
-
-@keyframes glitch-run {
-  0%   { clip-path: inset(0 0 0 0);       transform: translate(-50%, -50%) translateX(0);    filter: none; }
-  8%   { clip-path: inset(20% 0 30% 0);   transform: translate(-50%, -50%) translateX(-8px); filter: hue-rotate(90deg) saturate(3); }
-  16%  { clip-path: inset(60% 0 5% 0);    transform: translate(-50%, -50%) translateX(6px);  filter: hue-rotate(180deg) saturate(3); }
-  24%  { clip-path: inset(10% 0 70% 0);   transform: translate(-50%, -50%) translateX(-4px); filter: hue-rotate(270deg) saturate(2); }
-  32%  { clip-path: inset(80% 0 2% 0);    transform: translate(-50%, -50%) translateX(10px); filter: hue-rotate(90deg) saturate(3); }
-  40%  { clip-path: inset(30% 0 40% 0);   transform: translate(-50%, -50%) translateX(-6px); filter: hue-rotate(180deg) saturate(3); }
-  48%  { clip-path: inset(5% 0 90% 0);    transform: translate(-50%, -50%) translateX(4px);  filter: hue-rotate(270deg) saturate(2); }
-  56%  { clip-path: inset(50% 0 15% 0);   transform: translate(-50%, -50%) translateX(-12px);filter: hue-rotate(90deg) saturate(3); }
-  64%  { clip-path: inset(70% 0 8% 0);    transform: translate(-50%, -50%) translateX(8px);  filter: hue-rotate(180deg) saturate(2); }
-  72%  { clip-path: inset(15% 0 50% 0);   transform: translate(-50%, -50%) translateX(-3px); filter: hue-rotate(270deg) saturate(2); }
-  80%  { clip-path: inset(90% 0 0 0);     transform: translate(-50%, -50%) translateX(6px);  filter: none; }
-  90%  { clip-path: inset(100% 0 0 0);    transform: translate(-50%, -50%) translateX(0);    opacity: 1; }
-  100% { clip-path: inset(100% 0 0 0);    transform: translate(-50%, -50%) translateX(0);    opacity: 0; }
-}
-
-.glitch-stage.go .g-a {
-  animation: glitch-run 1.4s steps(1,end) forwards;
-}
-
-
-
-/* === 2. SCANLINE DISSOLVE === */
-.s-b { z-index: 1; }
-.s-a { z-index: 2; }
-.scanlines { position: absolute; inset: 0; z-index: 3; pointer-events: none;
-  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 3px, rgba(0,0,0,0.85) 3px, rgba(0,0,0,0.85) 4px);
-  opacity: 0; }
-
-@keyframes s-img-out {
-  0%   { opacity: 1; filter: brightness(1); }
-  20%  { opacity: 1; filter: brightness(1.5) contrast(1.4); }
-  40%  { opacity: 0.6; filter: brightness(0.5); }
-  60%  { opacity: 0.25; filter: brightness(1.8) contrast(2); }
-  80%  { opacity: 0.05; }
-  100% { opacity: 0; }
-}
-@keyframes s-lines {
-  0%, 100% { opacity: 0; }
-  20%, 60%  { opacity: 1; }
-  40%       { opacity: 0.4; }
-  80%       { opacity: 0; }
-}
-
-.scan-stage.go .s-a { animation: s-img-out 1.6s ease-in forwards; }
-.scan-stage.go .scanlines { animation: s-lines 1.6s ease-in forwards; }
-
-
-</style>
-
-
-
-
-
     
 
 
@@ -143,7 +73,7 @@
 
 <link rel="stylesheet" href="https://res.plaisio.gr/raw/upload/Campaigns/B2C-Campaigns/Shared/css/normalize.css" />
 <link rel="stylesheet" href="https://res.plaisio.gr/raw/upload/Campaigns/B2C-Campaigns/Shared/swiper/swiper-bundle.min.css" />
-<link rel="stylesheet" href="../assets/css/tailwinds.css" />
+<link rel="stylesheet" href="https://res.plaisio.gr/raw/upload/v1778848731/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/css/tailwinds.css" />
 
 
 
@@ -157,63 +87,41 @@
       
     <!-- Page Header -->
 
-      <section class="relative bg-[#23E8EC] h-[425px] md:h-[755px]">
+      <section class="relative bg-[#23E8EC] h-[490px] md:h-[755px] xl:h-[855px] pb-10">
         <div class="relative mx-auto pt-[65px] h-full"> 
            <!-- 1. GLITCH SLICE -->
           <div class="card h-full" id="c1">
             <div class="stage glitch-stage h-full" id="s1">
-              <img class="img-b g-b" src="../assets/images/header2.png" alt="Νέα TV - Για να μην δεις τους καλύτερους έτσι" loading="lazy"/>
-              <img class="img-a g-a" src="../assets/images/header1.png" alt="Birokoilian Ebape Football Channel - Καρικατούρες τριών ποδοσφαιριστών: Argosvini Junior, Birokoilian Ebape και Merona Imessi" />
+              <img class="img-b g-b top-[40%] md:top-[45%]" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/header2.png" alt="Νέα TV - Για να μην δεις τους καλύτερους έτσι" loading="lazy"/>
+              <img class="img-a g-a top-[40%] md:top-[45%]" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/header1.png" alt="Birokoilian Ebape Football Channel - Καρικατούρες τριών ποδοσφαιριστών: Argosvini Junior, Birokoilian Ebape και Merona Imessi" />
             </div>
+          </div>
             <div class="absolute z-10 left-1/2 -translate-x-1/2 bottom-0 w-full">
-              <p class="px-4 text-lg xl:text-xl">H απόλυτη ποδοσφαιρική γιορτή ξεκινά από την καινούρια σου τηλεόραση!</p>
+              <p class="px-4 text-lg xl:text-xl py-6">H απόλυτη ποδοσφαιρική γιορτή ξεκινά από την καινούρια σου τηλεόραση!</p>
               <svg xmlns="http://www.w3.org/2000/svg" width="25.819" height="15.03" viewBox="0 0 25.819 15.03" class="mx-auto mt-4 xl:mt-7">
                 <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="3"/>
               </svg>
             </div>
-          </div>
 
         </div>
       </section>
-
-      <section class="relative bg-[#23E8EC] h-[425px] md:h-[755px] xl:pb-10">
-        <div class="relative mx-auto pt-[65px] h-full"> 
-          <!-- 2. SCANLINE DISSOLVE -->
-          <div class="card h-full" id="c2" onclick="runScan()">
-            <div class="stage scan-stage h-full" id="s2">
-              <img class="img-b s-b" src="../assets/images/header2.png" alt="Νέα TV - Για να μην δεις τους καλύτερους έτσι" loading="lazy"/>
-              <img class="img-a s-a" src="../assets/images/header1.png" alt="Birokoilian Ebape Football Channel - Καρικατούρες τριών ποδοσφαιριστών: Argosvini Junior, Birokoilian Ebape και Merona Imessi" />
-              <div class="scanlines"></div>
-            </div>
-            <div class="absolute z-10 left-1/2 -translate-x-1/2 bottom-0 w-full">
-              <p class="px-4 text-lg xl:text-xl">H απόλυτη ποδοσφαιρική γιορτή ξεκινά από την καινούρια σου τηλεόραση!</p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="25.819" height="15.03" viewBox="0 0 25.819 15.03" class="mx-auto mt-4 xl:mt-7">
-                <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#000" stroke-linecap="round" stroke-width="3"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-
 
 
 
     <!-- Page Content -->
     <section class="max-w-screen-full mx-auto" style="min-height:150vh">
 
-      <section class="relative bg-[url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background_mob.png')] md:bg-[url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background.png')] bg-cover bg-center">
+      <section class="relative pb-10 xl:pb-20 bg-[url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background_mob.png')] md:bg-[url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background.png')] bg-cover">
         <div class="max-w-7xl mx-auto relative px-3 xl:px-0">
             <div class="group pt-10 xl:pt-20"> 
-              <a href="#" class="relative block">           
+              <a href="https://www.plaisio.gr/product/5156343" class="relative block">           
                 <picture>
-                  <source srcset="../assets/images/img-01_mob.png 780w" media="(max-width: 780px)">
-                  <source srcset="../assets/images/img-01.png">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/img-01_mob.png 780w" media="(max-width: 780px)">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/img-01.png">
                   <img
-                    srcset="../assets/images/img-01_mob.png 780w"
+                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/img-01_mob.png 780w"
                     sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
-                    src="../assets/images/img-01.png"
+                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/img-01.png"
                     alt="Ultimate TV Pack - Samsung 4K Neo QLED TV 75 ιντσών και Samsung Dolby Atmos Soundbar από 1659€ μόνο 1339€"
                     class="mx-auto group-hover:-translate-y-4 transition-all duration-300 reveal"
                     data-delay="80"
@@ -254,238 +162,422 @@
               <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
             </svg>
 
-            <div class="product-grid-swiper pt-6 xl:pt-10">
+            <div class="product-grid-swiper relative overflow-hidden pt-6 xl:pt-10" id="tvs">
               <div class="swiper-wrapper">
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260127-new-deco-collection-wild-poetry" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile20.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/samsung-4k-smart-tv-75-75u8072f_4806549">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv1_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv1.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv1_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv1.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2 text-nowrap">Wild Poetry Collection</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260429-legami" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile21.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/samsung-4k-neo-qled-tv-75-75qn80f-mini-led-ai_4796306">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv2_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv2.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv2_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv2.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2 text-nowrap">Legami</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260429-simeiomataria-stilo" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile22.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/samsung-4k-qled-tv-85-85q7f-ai_4796543">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv3_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv3.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv3_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv3.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2 text-nowrap">Σημειωματάρια & Στυλό</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260427-rastoni-collection" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile23.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/lg-4k-qned-tv-65-65qned70a6a_4854365">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv4_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv4.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv4_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv4.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2 text-nowrap">Rastoni Collection</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260429-coloring" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile24.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/lg_4814924">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv5_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv5.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv5_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv5.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2 text-nowrap">Coloring</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/list/ektiposi-analwsima/brandName--NIIMBOT" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile25.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/lg_4815041">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv6_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv6.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv6_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv6.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2">Ετικετογράφος Niimbot</p>
                 </div>
                 <div class="swiper-slide group relative">
-                  <a href="https://www.plaisio.gr/collection/20260511-dot-bloom" class="group-hover:drop-shadow-xl transition-shadow duration-300">                                   
-                    <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile26.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto group-hover:brightness-75 transition-all duration-300">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/hisense_4865499">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv7_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv7.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv7_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv7.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
                   </a>
-                  <p class="absolute bottom-6 text-white text-sm xl:text-xl z-10 left-1/2 -translate-x-1/2">Dot & Bloom</p>
                 </div>
+                <div class="swiper-slide group relative">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/samsung-4k-oled-tv-55-qe55s90f_4842219">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv8_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv8.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv8_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv8.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
+                  </a>
+                </div>
+                <div class="swiper-slide group relative">
+                  <a href="https://www.plaisio.gr/product/thleoraseis-ixos/thleoraseis/lg_4814916">
+                    <picture>
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv9_mob.png 780w" media="(max-width: 780px)">
+                      <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv9.png">
+                      <img
+                        srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv9_mob.png 780w"
+                        sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                        src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/tv9.png"
+                        alt=""
+                        class="mx-auto w-full"
+                      >
+                    </picture>   
+                  </a>
+                </div>
+
+
               </div>
               <!-- pagination -->
-              <div class="swiper-pagination !-bottom-7"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next hidden md:flex"></div>
+              <div class="swiper-button-prev hidden md:flex"></div>
             </div>
+            
+            <div class="xl:absolute right-0 pt-10 top-2/3 full:-right-44">       
+              <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis" class="block relative z-10">                
+                <img class="mx-auto float" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/ball.png" alt="" loading="lazy"/>    
+                <img class="mx-auto" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/shadow.png" alt="" loading="lazy"/>              
+              </a>   
+            </div>
+
+            <div class="max-w-7xl mx-auto relative border-t-2 border-dashed border-white mt-10 xl:mt-20" id="brands">
+              <p class="text-white text-xl xl:text-3xl pt-6 xl:pt-16">Διάλεξε ανά brand</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="25.819" height="15.03" viewBox="0 0 25.819 15.03" class="mx-auto mt-3">
+                <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+              </svg>
+
+              <div class="grid grid-cols-4 xl:grid-cols-5 gap-2 py-8 xl:py-16">
+                <div class="group col-span-2 xl:col-span-1 border-white border-2 rounded-full hover:bg-white transition-all duration-200">
+                  <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis/brandName--Turbo-X" class="relative block"> 
+                    <img class="mx-auto group-hover:invert transition-all duration-200" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/brand1.svg" alt="" loading="lazy"/>   
+                  </a>
+                </div>
+                <div class="group col-span-2 xl:col-span-1 border-white border-2 rounded-full hover:bg-white transition-all duration-200">
+                  <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis/brandName--Samsung" class="relative block"> 
+                    <img class="mx-auto group-hover:invert transition-all duration-200" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/brand2.svg" alt="" loading="lazy"/>   
+                  </a>
+                </div>
+                <div class="group col-span-2 xl:col-span-1 border-white border-2 rounded-full hover:bg-white transition-all duration-200">
+                  <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis/brandName--LG" class="relative block"> 
+                    <img class="mx-auto group-hover:invert transition-all duration-200" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/brand4.svg" alt="" loading="lazy"/>   
+                  </a>
+                </div>
+                <div class="group col-span-2 xl:col-span-1 border-white border-2 rounded-full hover:bg-white transition-all duration-200">
+                  <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis/brandName--Hisense" class="relative block"> 
+                    <img class="mx-auto group-hover:invert transition-all duration-200" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/brand5.svg" alt="" loading="lazy"/>   
+                  </a>
+                </div>
+                <div class="group col-span-2 xl:col-span-1 col-start-2 xl:col-start-5 border-white border-2 rounded-full hover:bg-white transition-all duration-200">
+                  <a href="https://www.plaisio.gr/list/thleoraseis-ixos/thleoraseis/brandName--Sony" class="relative block"> 
+                    <img class="mx-auto group-hover:invert transition-all duration-200" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/brand6.svg" alt="" loading="lazy"/>   
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
 
           </div>
       </section>
 
+      <section class="bg-[#276529]">       
+        <div class="relative md:pt-32 xl:pt-0" id="wizard">
+          <picture>
+            <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/fans_mob.png 780w" media="(max-width: 780px)">
+            <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/fans.png">
+            <img
+              srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/fans_mob.png 780w"
+              sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+              src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/fans.png"
+              alt=""
+              class="mx-auto"
+            >
+          </picture>  
+          <div class="absolute bottom-0 left-1/2 -translate-x-1/2">
+            <a href="https://www.plaisio.gr/category/thleoraseis-ixos#screen-size" class="block">
+              <img class="mx-auto rotation" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/fan_cta.svg" alt="" loading="lazy"/>   
+            </a>
+          </div>
+
+        </div>
+      </section>
 
 
+      <section class="bg-[#0D204B] pt-10 relative" id="soundbars">
+        <div class="max-w-7xl mx-auto relative">
+          <div class="flex flex-row justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
+            <p class="text-white font-bold text-4xl xl:text-[40px]" style="-webkit-text-stroke: 7px #000;paint-order: stroke fill;text-shadow: 2px 4px 0 #000;">Soundbars</p>
+            
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
+          </div>
+          <p class="text-white text-lg xl:text-xl pt-2 xl:pt-6">Διάλεξε το δικό σου</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25.819" height="15.03" viewBox="0 0 25.819 15.03" class="mx-auto mt-3 xl:mt-6">
+            <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+          </svg>
 
-        <section>
-          <div class="relative">
-            <div class="group pt-10 relative"> 
-              <a href="https://www.plaisio.gr/collection/20260408-plaisio-x-mikri-ollandeza" class="relative block">           
-                <picture>
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile7_mob.png 780w" media="(max-width: 780px)">
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile7.png">
-                  <img
-                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile7_mob.png 780w"
-                    sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
-                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile7.png"
-                    alt="Γυναίκα εργάζεται με laptop καθισμένη στο πάτωμα δημιουργικού χώρου εργασίας"
-                    class="mx-auto w-full"
-                  >
-                </picture>   
-              </a>  
+          <div class="md:grid grid-cols-4 px-4 md:px-0 pt-7 md:pt-16 gap-1">
+            <div class="bg-[#00989B] rounded-[10px] flex flex-col items-center justify-between text-center p-4 xl:p-10">
+              <p class="text-white font-bold text-base xl:text-xl xl:pt-20">ΆΚΟΥ τα συνθήματα και νιώσε τον παλμό σαν να είσαι στο γήπεδο!</p>
+              <a href="https://www.plaisio.gr/list/thleoraseis-ixos/ixos/soundbars" class="text-white font-bold text-base xl:text-xl hover:underline pt-4">Δες όλα τα Soundbars</a>
+            </div>
+            <div class="col-span-3 pt-4 md:pt-0">
+              <div class="product-grid-swiper-2 relative overflow-hidden">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide group relative">
+                    <a href="https://www.plaisio.gr/product/thleoraseis-ixos/ixos/soundbars/samsung-dolby-atmos-soundbar-hw-q600f_4872312">                      
+                      <img class="mx-auto" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/soundbar1.png" alt=""/> 
+                    </a>
+                  </div>
+                  <div class="swiper-slide group relative">
+                    <a href="https://www.plaisio.gr/product/thleoraseis-ixos/ixos/soundbars/jbl-dolby-atmos-soundbar-bar-1000mk2_4875109">                      
+                      <img class="mx-auto" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/soundbar2.png" alt=""/> 
+                    </a>
+                  </div>
+                  <div class="swiper-slide group relative">
+                    <a href="https://www.plaisio.gr/product/thleoraseis-ixos/ixos/soundbars/lg-dolby-atmos-soundbar-s80tr_4662822">                      
+                      <img class="mx-auto" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/soundbar3.png" alt=""/> 
+                    </a>
+                  </div>
+                  <div class="swiper-slide group relative">
+                    <a href="https://www.plaisio.gr/product/thleoraseis-ixos/ixos/soundbars/marshall-soundbar-heston-120-black_5031826">                      
+                      <img class="mx-auto" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/soundbar4.png" alt=""/> 
+                    </a>
+                  </div>
+                </div>
+              <!-- pagination -->
+              <!-- <div class="swiper-pagination2 hidden xl:block absolute"></div> -->
+              <div class="swiper-button-next swiper-button-next2 top-1/2 right-1"></div>
+              <div class="swiper-button-prev swiper-button-prev2 top-1/2 left-1"></div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <section class="max-w-[1640px] mx-auto relative py-10 xl:pt-24" id="category">
-          <div class="relative px-3 xl:px-0">
-            <p class="text-[27px] xl:text-4xl">SHOP BY CATEGORY</p>
-            <div class="grid grid-cols-2 xl:grid-cols-4 3xl:grid-cols-6 pt-6 gap-1 xl:gap-4">
-              <div class="group group-category reveal" data-delay="0">
-                <a href="https://www.plaisio.gr/list/xartopoleio/grafiki-ili" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile8.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Γραφική Ύλη</p>
-                </a>
-              </div>
-              <div class="group reveal" data-delay="150">
-                <a href="https://www.plaisio.gr/list/xartopoleio/xartia-tetradia-mplok" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile9.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Σημειωματάρια/Τετράδια</p>
-                </a>
-              </div>
-              <div class="group group-category reveal" data-delay="200">
-                <a href="https://www.plaisio.gr/list/xartopoleio/promitheies-grafeiou/organosi-aksesouar-grafeiou" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile10.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Οργάνωση Γραφείου</p>
-                </a>
-              </div>
-              <div class="group reveal" data-delay="250">
-                <a href="https://www.plaisio.gr/list/lifestyle-dora/lunch" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile11.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Lunch</p>
-                </a>
-              </div>
-              <div class="group group-category reveal" data-delay="300">
-                <a href="https://www.plaisio.gr/list/lifestyle-dora/tsantes-valitses/brandName--Bange~Helio%20Ferretti~Monolith~New%20Rebels~Polo~Rains~Sentio~Taygeer" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile12.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Τσάντες</p>
-                </a>
-              </div>
-              <div class="group reveal" data-delay="350">
-                <a href="https://www.plaisio.gr/list/karekles-epipla/karekles" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile13.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Καρέκλες Γραφείου</p>
-                </a>
-              </div>
-              <div class="group group-category reveal extra hidden xl:block" data-delay="400">
-                <a href="https://www.plaisio.gr/list/karekles-epipla/epipla-grafeiou/grafeia" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile14.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Γραφεία</p>
-                </a>
-              </div>
-              <div class="group reveal extra hidden xl:block" data-delay="450">
-                <a href="https://www.plaisio.gr/list/karekles-epipla/fotismos" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile15.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Φωτισμός Γραφείου</p>
-                </a>
-              </div>
-              <div class="group group-category reveal extra hidden xl:block" data-delay="500">
-                <a href="https://www.plaisio.gr/category/lifestyle-dora" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile16.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Lifestyle & Δώρα</p>
-                </a>
-              </div>
-              <div class="group reveal extra hidden xl:block" data-delay="550">
-                <a href="https://www.plaisio.gr/list/zografiki-hobby" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile17.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Ζωγραφική & Hobby</p>
-                </a>
-              </div>
-              <div class="group group-category reveal extra hidden xl:block" data-delay="600">
-                <a href="https://www.plaisio.gr/list/zografiki-hobby/diy-kataskeues" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile18.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">DIY</p>
-                </a>
-              </div>
-              <div class="group reveal extra hidden xl:block" data-delay="650">
-                <a href="https://www.plaisio.gr/category/toys" class="relative block overflow-hidden">                        
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile19.png" alt="Είδη Γραφείου Πλαίσιο" class="mx-auto">
-                  <p class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-4 transition-all duration-200 text-xs 1xs:text-sm xl:text-lg text-nowrap">Toys</p>
-                </a>
-              </div>
-            </div>
-            <div class="xl:hidden cta-wrap mt-4">
-              <button class="show-toggle border border-black py-2 px-4" id="toggleBtn" onclick="toggleItems()">
-                <span id="btnLabel">ΠΕΡΙΣΣΟΤΕΡΕΣ ΚΑΤΗΓΟΡΙΕΣ</span>
-                <i id="chevron" style="display:inline-flex; transition: transform 0.3s ease;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
-                </i>
-              </button>
-            </div>
+        </div>
+                           
+        <img class="hidden xl:block absolute right-20 top-20" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/horn.svg" alt=""/>                                          
+        <img class="hidden full:block absolute left-20 -bottom-10" src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/cup_glow_pulse.svg" alt=""/> 
+      </section>
+
+      <section class="bg-[#0D204B] pt-10 xl:pt-32 pb-10" id="projectors">
+        <div class="max-w-7xl mx-auto relative">
+          <div class="flex flex-row justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
+            <p class="text-white font-bold text-4xl xl:text-[40px]" style="-webkit-text-stroke: 7px #000;paint-order: stroke fill;text-shadow: 2px 4px 0 #000;">Projectors & Accessories</p>
+            
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
           </div>
-        </section>
+          <p class="text-white text-lg xl:text-xl pt-2 xl:pt-6">Δημιούργησε την δική σου γιγαντοοθόνη όπως την φαντάζεσαι <br>και βρες όλα τα απαραίτητα TV αξεσουάρ.</p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25.819" height="15.03" viewBox="0 0 25.819 15.03" class="mx-auto mt-3 xl:mt-6">
+            <path id="arrow" d="M10.789,0,0,10.788,10.789,21.576" transform="translate(2.121 12.91) rotate(-90)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="3"/>
+          </svg>
 
-
-
-
-        <section id="spring">
-          <div class="relative">
-            <div class="group pt-10 relative"> 
-              <a href="https://www.plaisio.gr/Campaign/hot-and-trending" class="relative block">           
+          <div class="md:grid grid-cols-2 pt-6 xl:pt-16 gap-4">
+            <div class="group">
+              <a href="https://www.plaisio.gr/list/thleoraseis-ixos/projectors-accessories/projectors">                
                 <picture>
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile31_mob.png 780w" media="(max-width: 780px)">
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile31.png">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector1_mob.png 780w" media="(max-width: 780px)">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector1.png">
                   <img
-                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile31_mob.png 780w"
+                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector1_mob.png 780w"
                     sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
-                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile31.png"
-                    alt="Γυναίκα εργάζεται με laptop καθισμένη στο πάτωμα δημιουργικού χώρου εργασίας"
+                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector1.png"
+                    alt=""
                     class="mx-auto group-hover:-translate-y-4 transition-transform duration-300"
                   >
-                </picture>   
-              </a>    
+                </picture>  
+              </a>
             </div>
-          </div>
-        </section>
-        
-        <section class="py-10 xl:pt-32" id="doro">
-          <div class="relative">
-            <p class="text-[27px] xl:text-4xl">ΚΑΙ ΜΗΝ ΞΕΧΝΑΣ</p>
-            <div class="group pt-10 relative">  
-              <a href="https://www.plaisio.gr/help/generalinformation/legalframework/marketingandcontestterms/2026/xartopolio-epipla-doroepitagi-1205">        
+            <div class="group">
+              <a href="https://www.plaisio.gr/list/thleoraseis-ixos/axesouar-thleoraseon">                
                 <picture>
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile32_mob.png 780w" media="(max-width: 780px)">
-                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile32.png">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector2_mob.png 780w" media="(max-width: 780px)">
+                  <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector2.png">
                   <img
-                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile32_mob.png 780w"
+                    srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector2_mob.png 780w"
                     sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
-                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/tile32.png"
-                    alt="Γυναίκα εργάζεται με laptop καθισμένη στο πάτωμα δημιουργικού χώρου εργασίας"
+                    src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/projector2.png"
+                    alt=""
                     class="mx-auto group-hover:-translate-y-4 transition-transform duration-300"
                   >
-                </picture>   
-                </a>
+                </picture>  
+              </a>
             </div>
           </div>
-        </section>
 
+          <div class="group pt-16 xl:pt-32">
+            <a href="https://blog.plaisio.gr/draft/pagkosmio-kypello-podosfairoy-2026-i-kalyteri-thesi-sto-gipedo-einai-sto-saloni-soy">                
+              <picture>
+                <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/blog_mob.png 780w" media="(max-width: 780px)">
+                <source srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/blog.png">
+                <img
+                  srcset="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/blog_mob.png 780w"
+                  sizes="(max-width: 780px) 100vw, (max-width: 780px) 780px, 1920px"
+                  src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/blog.png"
+                  alt=""
+                  class="mx-auto group-hover:-translate-y-4 transition-transform duration-300"
+                >
+              </picture>  
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+  
         
-        <section class="max-w-[1640px] mx-auto relative py-10 xl:pt-24" id="giati">
-          <div class="relative px-3 xl:px-0">
-            <p class="text-[27px] xl:text-4xl">ΤΟΣΟ ΠΛΑΙΣΙΟ</p>
-            <div class="xl:grid xl:grid-cols-4 pt-10">
+      <section class="bg-[#0D204B] py-10 relative" id="giati">
+        <div class="max-w-7xl mx-auto relative">
+          <div class="flex flex-row justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
+            <p class="text-white font-bold text-4xl xl:text-[40px]" style="-webkit-text-stroke: 7px #000;paint-order: stroke fill;text-shadow: 2px 4px 0 #000;">ΤΟΣΟ Πλαίσιο</p>
+            
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="40.864" height="38.597" viewBox="0 0 40.864 38.597">
+              <g id="Group_940261" data-name="Group 940261" transform="translate(-604.404 -1395.688)">
+                <g id="Group_940260" data-name="Group 940260" transform="translate(604.404 1395.688)">
+                  <path id="Union_9" data-name="Union 9" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z" transform="translate(2.076 1.384)"/>
+                  <path id="Union_8" data-name="Union 8" d="M26.91,36.551,19.393,32.6l-7.515,3.953a5.228,5.228,0,0,1-2.405.662,3.235,3.235,0,0,1-2.525-1.132,4.287,4.287,0,0,1-.754-3.659L7.63,24.054,1.55,18.126a5.35,5.35,0,0,1-1.293-1.86,3.366,3.366,0,0,1-.1-2.286,3.356,3.356,0,0,1,1.428-1.788,5.4,5.4,0,0,1,2.139-.747l8.405-1.221,3.756-7.614A5.4,5.4,0,0,1,17.251.8a3.256,3.256,0,0,1,4.284,0,5.375,5.375,0,0,1,1.37,1.806l3.759,7.614,8.4,1.221a5.386,5.386,0,0,1,2.139.747,3.255,3.255,0,0,1,1.326,4.074,5.409,5.409,0,0,1-1.293,1.86l-6.082,5.928,1.436,8.368a4.286,4.286,0,0,1-.754,3.659,3.232,3.232,0,0,1-2.522,1.132A5.214,5.214,0,0,1,26.91,36.551Z"/>
+                </g>
+                <path id="Path_332073" data-name="Path 332073" d="M25.985,33.29c2.166,1.139,3.586.107,3.173-2.305l-1.589-9.265L34.3,15.158c1.752-1.708,1.21-3.378-1.212-3.73l-9.3-1.352-4.16-8.43c-1.083-2.194-2.839-2.194-3.922,0l-4.16,8.43-9.3,1.352c-2.422.352-2.964,2.022-1.212,3.73L7.76,21.719,6.171,30.985C5.757,33.4,7.178,34.429,9.343,33.29l8.321-4.374Z" transform="translate(606.133 1397.418)" fill="#fef506"/>
+              </g>
+            </svg>
+          </div>
+
+            <div class="xl:grid xl:grid-cols-3 gap-4 pt-10 px-4 xl:px-0">
               <div>
                 <a href="https://www.plaisio.gr/campaign/tropoi-pliromis">                      
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/footer1.png" alt="" class="mx-auto pt-4">
+                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/footer1.png" alt="" class="mx-auto pt-4">
                 </a>
               </div>
               <div>
-                <a href="https://www.plaisio.gr/campaign/services/tropoi-paradosis">                      
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/footer2.png" alt="" class="mx-auto pt-4">
+                <a href="https://www.plaisio.gr/campaign/next_day_delivery">                      
+                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/footer2.png" alt="" class="mx-auto pt-4">
                 </a>
               </div>
               <div>
-                <a href="https://www.plaisio.gr/store-locator">                      
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/footer3.png" alt="" class="mx-auto pt-4">
-                </a>
-              </div>
-              <div>
-                <a href="https://blog.plaisio.gr/life/epiteloys-plaisio-sto-efood">                      
-                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-xartopoleio/images/footer4.png" alt="" class="mx-auto pt-4">
+                <a href="https://www.plaisio.gr/category/yphresies-plaisio">                      
+                  <img src="https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/footer3.png" alt="" class="mx-auto pt-4">
                 </a>
               </div>
             </div>
@@ -497,134 +589,10 @@
 
   </main>
 
-<script>
-function lockCard(stageId, badgeId, cardId, duration) {
-  const stage = document.getElementById(stageId);
-  const badge = document.getElementById(badgeId);
-  const card  = document.getElementById(cardId);
-  stage.classList.add('go', 'done');
-  badge.textContent = '✓ revealed';
-  badge.classList.add('done');
-  card.style.cursor = 'default';
-  card.onclick = null;
-}
-
-function runGlitch() {
-  const stage = document.getElementById('s1');
-  if (stage.classList.contains('go')) return;
-  stage.classList.add('go');
-  setTimeout(() => {
-    const imgA = stage.querySelector('.g-a');
-    imgA.style.opacity = '0';
-    imgA.style.pointerEvents = 'none';
-    stage.classList.add('done');
-    document.getElementById('b1').textContent = '✓ revealed';
-    document.getElementById('b1').classList.add('done');
-    document.getElementById('c1').style.cursor = 'default';
-    document.getElementById('c1').onclick = null;
-  }, 1450);
-}
-
-function runScan() {
-  const stage = document.getElementById('s2');
-  if (stage.classList.contains('go')) return;
-  stage.classList.add('go');
-  setTimeout(() => {
-    const imgA = stage.querySelector('.s-a');
-    imgA.style.opacity = '0';
-    imgA.style.pointerEvents = 'none';
-    stage.classList.add('done');
-    document.getElementById('b2').textContent = '✓ revealed';
-    document.getElementById('b2').classList.add('done');
-    document.getElementById('c2').style.cursor = 'default';
-    document.getElementById('c2').onclick = null;
-  }, 1650);
-}
-
-function runBurn() {
-  const stage = document.getElementById('s3');
-  const canvas = document.getElementById('burn-canvas');
-  if (canvas._done) return;
-  canvas._done = true;
-
-  const W = stage.offsetWidth, H = stage.offsetHeight;
-  canvas.width = W; canvas.height = H;
-  const ctx = canvas.getContext('2d');
-
-  const COLS = 32, ROWS = 24;
-  const cw = Math.ceil(W / COLS), ch = Math.ceil(H / ROWS);
-  const cells = [];
-  for (let r = 0; r < ROWS; r++)
-    for (let c = 0; c < COLS; c++)
-      cells.push({ x: c*cw, y: r*ch, delay: Math.random()*800 });
-
-  const src = new Image();
-  src.crossOrigin = 'anonymous';
-  src.onload = () => {
-    ctx.drawImage(src, 0, 0, W, H);
-    const start = performance.now();
-    const tick = (t) => {
-      const el = t - start;
-      ctx.clearRect(0, 0, W, H);
-      let allDone = true;
-      cells.forEach(cell => {
-        const p = Math.max(0, Math.min(1, (el - cell.delay) / 420));
-        if (p < 1) allDone = false;
-        if (p === 0) {
-          ctx.drawImage(src, cell.x, cell.y, cw, ch, cell.x, cell.y, cw, ch);
-        } else if (p < 0.5) {
-          const h = p * 2;
-          ctx.drawImage(src, cell.x, cell.y, cw, ch, cell.x, cell.y, cw, ch);
-          ctx.fillStyle = `rgba(255,${Math.floor(120*(1-h))},0,${h*0.9})`;
-          ctx.fillRect(cell.x, cell.y, cw, ch);
-        } else {
-          const f = (p - 0.5) * 2;
-          ctx.fillStyle = `rgba(0,0,0,${f})`;
-          ctx.fillRect(cell.x, cell.y, cw, ch);
-        }
-      });
-      if (!allDone) {
-        requestAnimationFrame(tick);
-      } else {
-        ctx.clearRect(0, 0, W, H);
-        canvas.style.display = 'none';
-        stage.classList.add('done');
-        document.getElementById('b3').textContent = '✓ revealed';
-        document.getElementById('b3').classList.add('done');
-        document.getElementById('c3').style.cursor = 'default';
-        document.getElementById('c3').onclick = null;
-      }
-    };
-    requestAnimationFrame(tick);
-  };
-  src.src = '../assets/images/img-02.png';
-}
-
-function runBlinds() {
-  const stage = document.getElementById('s4');
-  if (stage.classList.contains('go')) return;
-  stage.classList.add('go');
-  setTimeout(() => {
-    const imgA = stage.querySelector('.bl-a');
-    imgA.style.opacity = '0';
-    imgA.style.pointerEvents = 'none';
-    const wrap = stage.querySelector('.blinds-wrap');
-    wrap.style.display = 'none';
-    stage.classList.add('done');
-    document.getElementById('b4').textContent = '✓ revealed';
-    document.getElementById('b4').classList.add('done');
-    document.getElementById('c4').style.cursor = 'default';
-    document.getElementById('c4').onclick = null;
-  }, 1650);
-}
-
-setTimeout(() => runGlitch(), 1200);
-</script>
 
     <script src="https://res.plaisio.gr/raw/upload/Campaigns/B2C-Campaigns/Shared/js/jquery-3.7.1.min.js"></script>
     <script src="https://res.plaisio.gr/raw/upload/v1742998127/Campaigns/B2C-Campaigns/Shared/swiper/swiper-bundle.min.js"></script>
-    <script src="https://res.plaisio.gr/plaisio-acc/raw/upload/v1772100641/Campaigns/B2C-Campaigns/Shared/fslightbox/fslightbox.js"></script>
-    <script src="https://res.plaisio.gr/raw/upload/v1778589178/Campaigns/B2C-Campaigns/2026/05-xartopoleio/js/script.js"></script>
+    <script src="https://res.plaisio.gr/raw/upload/v1778849174/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/js/script.js"></script>
 
 
 </body>

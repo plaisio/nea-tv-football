@@ -19,11 +19,33 @@ let swiper3 = null
     },
     breakpoints: {
       768: {
+        slidesPerView: 1,
+      }
+    },
+  })
+
+    swiper2 = new Swiper('.product-grid-swiper-2', {
+    slidesPerView: 1.5,
+    slidesPerGroup: 1,
+    spaceBetween: 10,
+    centeredSlides: false,
+    pagination: {
+      el: '.swiper-pagination2',
+      clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next2",
+        prevEl: ".swiper-button-prev2",
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2.5,
+        centeredSlides: false,
+      },
+
+      1280: {
         slidesPerView: 3,
-      }, 
-      1536: {
-        slidesPerView: 5.5,
-        initialSlide: 2,
+        spaceBetween: 0,
       }
     },
   })
@@ -32,22 +54,6 @@ if (isMobile) {
 
 
     swiper3 = new Swiper('.product-grid-swiper-3', {
-    slidesPerView: 1.5,
-    slidesPerGroup: 1,
-    centeredSlides: true,
-    pagination: {
-      el: '.swiper-pagination2',
-      clickable: true,
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2.5,
-        centeredSlides: false,
-      }
-    },
-  })
-
-    swiper2 = new Swiper('.product-grid-swiper-2', {
     slidesPerView: 1.5,
     slidesPerGroup: 1,
     centeredSlides: true,
@@ -62,6 +68,8 @@ if (isMobile) {
       }
     },
   })
+
+
 
 }
 
@@ -86,3 +94,24 @@ reveals.forEach(el => {
   el.style.setProperty('--delay', `${delay}ms`);
   observer.observe(el);
 });
+
+
+
+function runGlitch() {
+  const stage = document.getElementById('s1');
+  if (stage.classList.contains('go')) return;
+  stage.classList.add('go');
+  setTimeout(() => {
+    const imgA = stage.querySelector('.g-a');
+    imgA.style.opacity = '0';
+    imgA.style.pointerEvents = 'none';
+    stage.classList.add('done');
+    document.getElementById('c1').style.cursor = 'default';
+    document.getElementById('c1').onclick = null;
+  }, 1450);
+}
+
+
+
+
+setTimeout(() => runGlitch(), 1700);
