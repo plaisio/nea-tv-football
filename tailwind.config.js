@@ -5,9 +5,7 @@ module.exports = {
       'swiper-pagination-bullet-active',
       'swiper-button-disabled',
       'swiper-pagination-bullet',
-      'marquee',
-      'marquee-wrapper',
-      'emoji-float'
+      'bg-white'
     // add any  custom classes you want to always include
   ],
   theme: {

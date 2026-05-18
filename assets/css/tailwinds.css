@@ -855,6 +855,10 @@ html {
   animation: glitch-run 1.4s steps(1,end) forwards;
 }
 
+.bg-white{
+  background-color: #fff;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -881,6 +885,18 @@ html {
 
 .bottom-0 {
   bottom: 0px;
+}
+
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.bottom-36 {
+  bottom: 9rem;
+}
+
+.left-0 {
+  left: 0px;
 }
 
 .left-1 {
@@ -923,32 +939,8 @@ html {
   top: 5rem;
 }
 
-.top-\[40\%\] {
-  top: 40%;
-}
-
-.top-\[35\%\] {
-  top: 35%;
-}
-
 .top-\[30\%\] {
   top: 30%;
-}
-
-.bottom-48 {
-  bottom: 12rem;
-}
-
-.bottom-40 {
-  bottom: 10rem;
-}
-
-.bottom-32 {
-  bottom: 8rem;
-}
-
-.bottom-36 {
-  bottom: 9rem;
 }
 
 .z-10 {
@@ -976,28 +968,33 @@ html {
   margin-right: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.-mt-52 {
+  margin-top: -13rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .mt-2 {
   margin-top: 0.5rem;
 }
 
-.block {
-  display: block;
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
-.inline-block {
-  display: inline-block;
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.block {
+  display: block;
 }
 
 .flex {
@@ -1012,36 +1009,60 @@ html {
   display: none;
 }
 
-.h-\[550px\] {
-  height: 550px;
+.h-\[624px\] {
+  height: 624px;
 }
 
 .h-\[65px\] {
   height: 65px;
 }
 
-.h-full {
-  height: 100%;
+.h-\[756px\] {
+  height: 756px;
 }
 
-.h-\[624px\] {
-  height: 624px;
+.h-full {
+  height: 100%;
 }
 
 .w-full {
   width: 100%;
 }
 
-.w-1\/2 {
-  width: 50%;
+.min-w-\[180px\] {
+  min-width: 180px;
+}
+
+.min-w-\[80px\] {
+  min-width: 80px;
 }
 
 .max-w-7xl {
   max-width: 80rem;
 }
 
+.max-w-\[75\%\] {
+  max-width: 75%;
+}
+
+.max-w-\[85\%\] {
+  max-width: 85%;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
 .max-w-screen-full {
   max-width: 1920px;
+}
+
+.max-w-screen-xl {
+  max-width: 1280px;
+}
+
+.max-w-\[440px\] {
+  max-width: 440px;
 }
 
 .-translate-x-1\/2 {
@@ -1055,6 +1076,10 @@ html {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-4 {
@@ -1097,6 +1122,10 @@ html {
   overflow: hidden;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .rounded-\[10px\] {
   border-radius: 10px;
 }
@@ -1113,17 +1142,35 @@ html {
   border-width: 2px;
 }
 
+.border-r-2 {
+  border-right-width: 2px;
+}
+
 .border-t-2 {
   border-top-width: 2px;
+}
+
+.border-solid {
+  border-style: solid;
 }
 
 .border-dashed {
   border-style: dashed;
 }
 
+.border-\[\#5e5858\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(94 88 88 / var(--tw-border-opacity, 1));
+}
+
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.border-t-black {
+  --tw-border-opacity: 1;
+  border-top-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[\#00989B\] {
@@ -1141,9 +1188,19 @@ html {
   background-color: rgb(35 232 236 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#256428\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 100 40 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[\#276529\] {
   --tw-bg-opacity: 1;
   background-color: rgb(39 101 41 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#55FFDE\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(85 255 222 / var(--tw-bg-opacity, 1));
 }
 
 .bg-black {
@@ -1151,16 +1208,38 @@ html {
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[url\(\'https\:\/\/res\.plaisio\.gr\/image\/upload\/Campaigns\/B2C-Campaigns\/2026\/05-nea-tv-football\/images\/background_mob\.png\'\)\] {
   background-image: url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background_mob.png');
+}
+
+.bg-\[url\(\'https\:\/\/res\.plaisio\.gr\/image\/upload\/v1779109771\/Campaigns\/B2C-Campaigns\/2026\/05-nea-tv-football\/images\/wizard\/bg_mob\.png\'\)\] {
+  background-image: url('https://res.plaisio.gr/image/upload/v1779109771/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/wizard/bg_mob.png');
 }
 
 .bg-cover {
   background-size: cover;
 }
 
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
 .p-4 {
   padding: 1rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .px-3 {
@@ -1173,9 +1252,29 @@ html {
   padding-right: 1rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .py-10 {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+}
+
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-6 {
@@ -1186,11 +1285,6 @@ html {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pb-10 {
@@ -1221,12 +1315,12 @@ html {
   padding-top: 1.75rem;
 }
 
-.pt-\[65px\] {
-  padding-top: 65px;
-}
-
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-\[65px\] {
+  padding-top: 65px;
 }
 
 .text-center {
@@ -1235,6 +1329,11 @@ html {
 
 .font-bold {
   font-family: plaisioBold, plaisioBold Fallback;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-4xl {
@@ -1263,6 +1362,11 @@ html {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.text-\[\#121740\] {
+  --tw-text-opacity: 1;
+  color: rgb(18 23 64 / var(--tw-text-opacity, 1));
 }
 
 .text-white {
@@ -1316,9 +1420,22 @@ html {
    Base Layer
    ============================================= */
 
+.hover\:bg-white:hover{
+  background-color: #fff;
+}
+
+.hover\:border-solid:hover {
+  border-style: solid;
+}
+
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:text-\[\#121740\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(18 23 64 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -1336,8 +1453,16 @@ html {
 }
 
 @media (min-width: 768px) {
+  .md\:top-32 {
+    top: 8rem;
+  }
+
   .md\:top-\[45\%\] {
     top: 45%;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:flex {
@@ -1348,12 +1473,20 @@ html {
     display: grid;
   }
 
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-\[755px\] {
     height: 755px;
   }
 
   .md\:bg-\[url\(\'https\:\/\/res\.plaisio\.gr\/image\/upload\/Campaigns\/B2C-Campaigns\/2026\/05-nea-tv-football\/images\/background\.png\'\)\] {
     background-image: url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background.png');
+  }
+
+  .md\:bg-\[url\(\'https\:\/\/res\.plaisio\.gr\/image\/upload\/Campaigns\/B2C-Campaigns\/2026\/05-nea-tv-football\/images\/wizard\/bg\.png\'\)\] {
+    background-image: url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/wizard/bg.png');
   }
 
   .md\:px-0 {
@@ -1379,6 +1512,10 @@ html {
     position: absolute;
   }
 
+  .xl\:bottom-0 {
+    bottom: 0px;
+  }
+
   .xl\:bottom-auto {
     bottom: auto;
   }
@@ -1391,8 +1528,8 @@ html {
     top: 50%;
   }
 
-  .xl\:bottom-0 {
-    bottom: 0px;
+  .xl\:top-12 {
+    top: 3rem;
   }
 
   .xl\:col-span-1 {
@@ -1401,6 +1538,16 @@ html {
 
   .xl\:col-start-5 {
     grid-column-start: 5;
+  }
+
+  .xl\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .xl\:my-8 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   .xl\:mt-20 {
@@ -1415,25 +1562,61 @@ html {
     margin-top: 1.75rem;
   }
 
+  .xl\:-mt-72 {
+    margin-top: -18rem;
+  }
+
+  .xl\:-mt-80 {
+    margin-top: -20rem;
+  }
+
   .xl\:block {
     display: block;
+  }
+
+  .xl\:flex {
+    display: flex;
   }
 
   .xl\:grid {
     display: grid;
   }
 
+  .xl\:hidden {
+    display: none;
+  }
+
+  .xl\:h-\[1100px\] {
+    height: 1100px;
+  }
+
   .xl\:h-\[855px\] {
     height: 855px;
+  }
+
+  .xl\:max-w-\[1000px\] {
+    max-width: 1000px;
+  }
+
+  .xl\:max-w-\[1100px\] {
+    max-width: 1100px;
   }
 
   .xl\:max-w-\[150px\] {
     max-width: 150px;
   }
 
+  .xl\:max-w-\[570px\] {
+    max-width: 570px;
+  }
+
   .xl\:-translate-y-1\/2 {
     --tw-translate-y: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .xl\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
   .xl\:grid-cols-3 {
@@ -1444,8 +1627,17 @@ html {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
-  .xl\:grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+  .xl\:border-b-2 {
+    border-bottom-width: 2px;
+  }
+
+  .xl\:border-dashed {
+    border-style: dashed;
+  }
+
+  .xl\:border-white {
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
   }
 
   .xl\:p-10 {
@@ -1455,6 +1647,21 @@ html {
   .xl\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .xl\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .xl\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .xl\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 
   .xl\:py-16 {
@@ -1482,16 +1689,25 @@ html {
     padding-top: 5rem;
   }
 
+  .xl\:pt-3 {
+    padding-top: 0.75rem;
+  }
+
   .xl\:pt-32 {
     padding-top: 8rem;
+  }
+
+  .xl\:pt-4 {
+    padding-top: 1rem;
   }
 
   .xl\:pt-6 {
     padding-top: 1.5rem;
   }
 
-  .xl\:pt-3 {
-    padding-top: 0.75rem;
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .xl\:text-3xl {
@@ -1499,13 +1715,34 @@ html {
     line-height: 2.25rem;
   }
 
+  .xl\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .xl\:text-\[40px\] {
     font-size: 40px;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .xl\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .\32xl\:max-w-\[1000px\] {
+    max-width: 1000px;
   }
 }
 
