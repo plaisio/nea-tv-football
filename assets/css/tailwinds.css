@@ -1213,6 +1213,11 @@ html {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#0D204A\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 32 74 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[url\(\'https\:\/\/res\.plaisio\.gr\/image\/upload\/Campaigns\/B2C-Campaigns\/2026\/05-nea-tv-football\/images\/background_mob\.png\'\)\] {
   background-image: url('https://res.plaisio.gr/image/upload/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/images/background_mob.png');
 }
