@@ -13,7 +13,7 @@
 
 </head>
  
-<body class="">
+<body>
     
 <style>
     @font-face {
@@ -589,46 +589,45 @@
     <!-- .page-content-->
 
   </main>
-<script>
-  // Modal logic — add inside your main <script> block
-document.querySelectorAll('[data-modal]').forEach(function(trigger) {
-  trigger.addEventListener('click', function() {
-    var modal = document.getElementById(trigger.dataset.modal);
-    if (!modal) return;
-    modal.classList.remove('hidden', 'pointer-events-none');
-    requestAnimationFrame(function() {
-      modal.classList.remove('opacity-0');
+  <script>
+    // Modal logic — add inside your main <script> block
+  document.querySelectorAll('[data-modal]').forEach(function(trigger) {
+    trigger.addEventListener('click', function() {
+      var modal = document.getElementById(trigger.dataset.modal);
+      if (!modal) return;
+      modal.classList.remove('hidden', 'pointer-events-none');
+      requestAnimationFrame(function() {
+        modal.classList.remove('opacity-0');
+      });
     });
   });
-});
 
-document.querySelectorAll('.modal-overlay').forEach(function(modal) {
-  // Close on backdrop click
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) closeModal(modal);
+  document.querySelectorAll('.modal-overlay').forEach(function(modal) {
+    // Close on backdrop click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal(modal);
+    });
+    // Close button
+    modal.querySelector('.modal-close')?.addEventListener('click', function() {
+      closeModal(modal);
+    });
   });
-  // Close button
-  modal.querySelector('.modal-close')?.addEventListener('click', function() {
-    closeModal(modal);
-  });
-});
 
-// Close on ESC
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay:not(.hidden)').forEach(closeModal);
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay:not(.hidden)').forEach(closeModal);
+    }
+  });
+
+  function closeModal(modal) {
+    modal.classList.add('opacity-0');
+    setTimeout(function() {
+      modal.classList.add('hidden', 'pointer-events-none');
+    }, 300);
   }
-});
+  </script>
 
-function closeModal(modal) {
-  modal.classList.add('opacity-0');
-  setTimeout(function() {
-    modal.classList.add('hidden', 'pointer-events-none');
-  }, 300);
-}
-</script>
-
-    <script src="https://res.plaisio.gr/raw/upload/Campaigns/B2C-Campaigns/Shared/js/jquery-3.7.1.min.js"></script>
     <script src="https://res.plaisio.gr/raw/upload/v1742998127/Campaigns/B2C-Campaigns/Shared/swiper/swiper-bundle.min.js"></script>
     <script src="https://res.plaisio.gr/plaisio-acc/raw/upload/v1772100641/Campaigns/B2C-Campaigns/Shared/fslightbox/fslightbox.js"></script>
     <script src="https://res.plaisio.gr/raw/upload/v1778849174/Campaigns/B2C-Campaigns/2026/05-nea-tv-football/js/script.js"></script>
